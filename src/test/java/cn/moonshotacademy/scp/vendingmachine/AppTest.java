@@ -1,4 +1,4 @@
-package cn.moonshotacademy;
+package cn.moonshotacademy.scp.vendingmachine;
 
 import static org.junit.Assert.assertTrue;
 
