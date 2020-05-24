@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Data
@@ -12,7 +13,9 @@ import org.springframework.stereotype.Component;
 public class Assignment {
     @Resource(name = "p")
     private Student s;
-    private String assignmentName = "Vending Machine";
+
+    @Value("Vending Machine")
+    private String assignmentName;
 
     public void printInfo() {
         System.out.print("Student: ");
