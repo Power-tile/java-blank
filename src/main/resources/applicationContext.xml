@@ -14,9 +14,12 @@
                            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     
     <context:component-scan base-package="cn.moonshotacademy.scp.vendingmachine" />
-    <bean name="p" class="cn.moonshotacademy.scp.vendingmachine.Student">
-        <property name="name" value="Daniel" />
-        <property name="age" value="15" />
-        <property name="classIndex" value="0" />
-    </bean>
+
+    <aop:aspectj-autoproxy />
+    <aop:config>
+        <aop:pointcut id="testCutpoint" expression="execution(* cn.moonshotacademy.scp.vendingmachine.service.ProductService.*(..))" />
+        <aop:aspect id="testAsp" ref="testAspect">
+            <aop:around pointcut-ref="testCutpoint" method="log" />
+        </aop:aspect>
+    </aop:config>
 </beans>
